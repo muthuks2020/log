@@ -1,0 +1,20 @@
+<form ng-submit="vm.submitArticle()">
+	<h3> Welcome</h3>
+		<h3> Thank you for Registering with Unipaper</h3>
+			<h3> Write a Story</h3>
+	<div>
+		Story Title
+		<br>
+		<input type="text" ng-model="vm.form.title">
+	</div>
+	<div>
+		Content
+		<br>
+		<textarea ng-model="vm.form.text"></textarea>
+	</div>
+	<div>
+		<button type="submit">Submit</button>
+	</div>
+</form>
+
+<button ng-click="vm.logout()">Logout</button>

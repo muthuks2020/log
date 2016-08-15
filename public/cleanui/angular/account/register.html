@@ -1,0 +1,38 @@
+<div class="single-page-block-inner">
+
+
+<img src="images/unipaperlogo.png" >
+<br>
+	<br>
+	<div class="form-group">
+	
+
+		<button type="button" class="btn btn-icon btn-success btn-block margin-inline" ng-click="vm.register('facebook')">
+			<i class="icmn-facebook2 pull-left" aria-hidden="true"></i>
+			Facebook
+		</button>
+		<button type="button" class="btn btn-icon btn-primary btn-block margin-inline" ng-click="vm.register('twitter')">
+			<i class="icmn-twitter pull-left" aria-hidden="true"></i>
+			Twitter
+		</button>
+
+	</div>
+
+
+	<form ng-submit="vm.register('email')">
+		<div class="form-group">
+			<!--<input type="text" class="form-control" ng-model="vm.form.name" required placeholder="Name"> -->
+		</div>
+		<div class="form-group">
+			<input type="email" class="form-control" ng-model="vm.form.email" required placeholder="Email">
+		</div>
+		<div class="form-group">
+			<input type="password" class="form-control password" ng-model="vm.form.password" required placeholder="Password">
+		</div>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary width-100">Login</button>
+			<button class="btn btn-link margin-left-10">    Sign up       </button>
+		</div>
+	</form>
+</div>

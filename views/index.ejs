@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="uniPaper">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Unipaper</title>
+
+    <link href="cleanui/assets/common/img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
+    <link href="cleanui/assets/common/img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
+    <link href="cleanui/assets/common/img/favicon.72x72.png" rel="apple-touch-icon" type="image/png" sizes="72x72">
+    <link href="cleanui/assets/common/img/favicon.57x57.png" rel="apple-touch-icon" type="image/png">
+    <link href="cleanui/assets/common/img/favicon.png" rel="icon" type="image/png">
+    <link href="favicon.ico" rel="shortcut icon">
+
+    <!-- HTML5 shim and Respond.js for < IE9 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="cleanui/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="cleanui/assets/css/style.css">
+    <!-- Clean UI Styles -->
+    <link rel="stylesheet" type="text/css" href="cleanui/assets/css/source/main.css">
+
+    <!-- Font Awesome Styles -->
+    <link rel="stylesheet" type="text/css" href="cleanui/assets/css/font-awesome/css/font-awesome.min.css">
+
+    <!-- Scripts -->
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/angular-route.min.js"></script>
+    <script src="javascripts/tether.min.js"></script><!-- Tether for Bootstrap --> 
+    <script src="javascripts/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="https://oauth.io/lib/oauth.js"></script>-->
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+
+    <script src="//use.typekit.net/iws6ohy.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <script src="javascripts/auth0-variables.js"> </script>
+    <script type="text/javascript" src="javascripts/app.js  "></script>
+    <script src="javascripts/homeview.js"></script>
+
+     <!-- Authentication Scripts -->
+    <script src="services/authenticationservice.js"></script>
+</head>
+
+    <body class="single-page-block ">
+
+    <div class="container">
+        <div class="header">
+        <!--
+            <div class="top-banner clearfix">
+                <img src="images/imgpsh_fullsize.png">
+            </div>
+        -->
+        <section class="mainPanel">
+            <div class="row">
+                <div class="col-md-9 col-sm-12">
+                    <div ng-view></div> 
+                </div>
+                <div class="col-md-3 col-sm-12">
+            <div class="sidebarAds">
+            <img src="images/img_right.jpeg">
+            </div>
+                </div>
+            </div>
+          
+            
+            <div class="main-backdrop"></div>
+        </section>
+
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

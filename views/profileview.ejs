@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html ng-app="unipaperApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Registration Form</title>
+
+   
+
+    <!-- HTML5 shim and Respond.js for < IE9 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+     <script src="../javascripts/jquery.min.js"></script>
+    <script src="../javascripts/angular.min.js"></script>
+    <script src="../javascripts/angular-route.min.js"></script>
+    <script src="../javascripts/tether.min.js"></script><!-- Tether for Bootstrap --> 
+    <script src="../javascripts/bootstrap.min.js"></script>
+
+    <!-- Vendors Styles -->
+
+	<link href="cleanui/css/reset.css" type="text/css" rel="stylesheet" media="all" />
+	<link href="cleanui/css/style.css" type="text/css" rel="stylesheet" media="all" />
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/jscrollpane/style/jquery.jscrollpane.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/ladda/dist/ladda-themeless.min.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/select2/dist/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/fullcalendar/dist/fullcalendar.min.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/cleanhtmlaudioplayer/src/player.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/cleanhtmlvideoplayer/src/player.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/bootstrap-sweetalert/dist/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/summernote/dist/summernote.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/owl.carousel/dist/assets/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/ionrangeslider/css/ion.rangeSlider.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/datatables/media/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/c3/c3.min.css">
+	<link rel="stylesheet" type="text/css" href="cleanui/assets/vendors/chartist/dist/chartist.min.css">
+
+    <!-- Clean UI Styles -->
+    <link rel="stylesheet" type="text/css" href="cleanui/assets/common/css/source/main.css">
+
+  
+
+    <!-- Clean UI Scripts -->
+    <script src="cleanui/assets/common/js/common.js"></script>
+    <script src="cleanui/assets/common/js/demo.temp.js"></script>
+</head>
+<body id="reg-body" ng-controller="unipaperCtrl">
+	<nav class="navbar navbar-default navbar-fixed-top" id="mainNav">
+		<div class="container">
+			<div class="navbar-header">
+					<a class="navbar-brand"><img src="images/logo.jpg"></a>
+			</div>
+			 <div class="menu">
+        <div class="menu-user-block">
+            <div class="dropdown dropdown-avatar">
+                <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="avatar" href="javascript:void(0);">
+                        <img src="cleanui/assets/common/img/temp/avatars/2.jpg" alt="Alternative text to the image">
+                    </span>   
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="" role="menu">
+                
+                   <a class="dropdown-item" href="/storyview"><i class="dropdown-icon icmn-circle-right"></i> My Stories</a>
+                    <a class="dropdown-item" href="/profileview"><i class="dropdown-icon icmn-circle-right"></i> Profile</a>
+                    
+       <div class="dropdown-divider"></div>
+      <%if (sessiontrue > 0) { %>
+                    <a class="dropdown-item" href="/logout"><i class="dropdown-icon icmn-exit"></i> Logout</a>
+                     <% } %>
+    </ul>
+            </div>
+        </div>
+        
+    </div>
+		</div>
+	</nav>
+<!--	<header>
+		<div class="header-content">
+		
+		</div>
+	</header>
+-->
+<section id="reg">
+	<div class="container" style="padding-top: 60px;" id="reg-form">
+	  <div class="row">
+		<!-- left column -->
+		<div class="col-md-4 col-sm-6 col-xs-12 upload-image">
+		  <div class="text-center">
+			<img src="images/pro-pic.jpg" class="" alt="avatar">
+			
+<input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" class="text-center center-block well well-sm" name="profilepicturefile">
+
+		  </div>
+		</div>
+		<!-- edit form column -->
+		<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+
+
+		  <form class="form-horizontal" role="form" ng-submit="profileformSubmit()">
+			<div class="form-group">
+			  <label class="col-lg-3 control-label"></label>
+			  <div class="col-lg-8">
+				<input class="form-control" value="" type="text" ng-init="profileform.username='<%= username %>'" ng-model="profileform.username" placeholder="Name">
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label class="col-lg-3 control-label"></label>
+			  <div class="col-lg-8">
+				<input class="form-control" value="" type="text" ng-init="profileform.universityname='<%= universityname %>'" ng-model="profileform.universityname" placeholder="University Name">
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label class="col-lg-3 control-label"></label>
+			  <div class="col-lg-8">
+				<input class="form-control" value="" type="text" ng-init="profileform.city='<%= city %>'" ng-model="profileform.city" placeholder="City">
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label class="col-lg-3 control-label"></label>
+			  <div class="col-lg-8">
+				<input class="form-control" value="" type="text" ng-init="profileform.email='<%= email %>'" ng-model="profileform.email" placeholder="Email">
+			  </div>
+			</div>
+		   
+			<div class="form-group">
+			  <label class="col-md-3 control-label"></label>
+			  <div class="col-md-8">
+				<input class="form-control" value="" type="text" ng-init="profileform.facebooklinks='<%= facebooklinks %>'" ng-model="profileform.facebooklinks" placeholder="Facebook">
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label class="col-md-3 control-label"></label>
+			  <div class="col-md-8">
+				<input class="form-control" value="" type="text" ng-init="profileform.twitterlinks='<%= twitterlinks %>'" ng-model="profileform.twitterlinks" placeholder="Twitter">
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label class="col-md-3 control-label"></label>
+			  <div class="col-md-8">
+				<textarea class="form-control" rows="3" id="comment" ng-init="profileform.aboutyou='<%= aboutyou %>'" ng-model="profileform.aboutyou" placeholder="About You"></textarea>
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label class="col-md-3 control-label"></label>
+			  <div class="col-md-8">
+				<input class="btn btn-primary" value="Update Profile" type="submit">
+				<span></span>
+				<input class="btn btn-default" value="Cancel" type="reset">
+			  </div>
+			</div>
+		  </form>
+
+
+		</div>
+	  </div>
+</div>
+</section>
+
+
+        <script src="../javascripts/custom.js"></script>
+            <script src="../services/writerservice.js"></script>
+</body>
+</html>
